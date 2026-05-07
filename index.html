@@ -17,6 +17,129 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="templatemo-frost-style.css">
+
+  <!-- ========== TAMBAHAN: CSS Nav Login ========== -->
+  <style>
+    .nav-main {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 24px;
+      padding: 16px 32px;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      z-index: 1001;
+    }
+
+    .nav-main a {
+      color: #3a3a3a;
+      text-decoration: none;
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: color 0.3s ease;
+    }
+
+    .nav-main a:hover {
+      color: #1a1a1a;
+    }
+
+    .nav-cta {
+      background: #2d6a4f !important;
+      color: #fff !important;
+      padding: 8px 20px;
+      border-radius: 4px;
+      font-weight: 600 !important;
+      font-size: 0.78rem !important;
+      letter-spacing: 0.06em !important;
+      border: 2px solid #2d6a4f;
+      cursor: pointer;
+      transition: 0.3s ease;
+      text-decoration: none !important;
+      display: inline-block;
+    }
+
+    .nav-cta:hover {
+      background: transparent !important;
+      color: #2d6a4f !important;
+    }
+
+    #userInfo {
+      font-family: 'Manrope', sans-serif;
+      color: #3a3a3a;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      display: none;
+      align-items: center;
+      gap: 6px;
+    }
+
+    #userInfo.visible {
+      display: flex;
+    }
+
+    #authArea {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    #authArea button {
+      background: #2d6a4f;
+      color: #fff;
+      font-family: 'Manrope', sans-serif;
+      font-weight: 600;
+      border: 2px solid #2d6a4f;
+      padding: 8px 20px;
+      cursor: pointer;
+      border-radius: 4px;
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: 0.3s ease;
+    }
+
+    #authArea button:hover {
+      background: transparent;
+      color: #2d6a4f;
+    }
+
+    .logout-btn {
+      background: transparent !important;
+      color: #888 !important;
+      border: 1px solid #ccc !important;
+      padding: 7px 16px !important;
+      font-size: 0.75rem !important;
+    }
+
+    .logout-btn:hover {
+      color: #333 !important;
+      border-color: #333 !important;
+    }
+
+    @media (max-width: 768px) {
+      .nav-main {
+        gap: 10px;
+        padding: 12px 16px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .nav-main a:not(.nav-cta) {
+        display: none;
+      }
+    }
+  </style>
+  <!-- ========== END TAMBAHAN ========== -->
+
 <!--
 
 TemplateMo 613 Frost Bakery
@@ -26,6 +149,20 @@ https://templatemo.com/tm-613-frost-bakery
 -->
 </head>
 <body>
+
+  <!-- ========== TAMBAHAN: Nav Login ========== -->
+  <nav class="nav-main">
+    <a href="#collections">Collections</a>
+    <a href="#story">Our Story</a>
+    <a href="#craftsmanship">Craftsmanship</a>
+    <a href="#contact">Visit Us</a>
+    <a href="#contact" class="nav-cta">Book</a>
+    <p id="userInfo">Belum login</p>
+    <div id="authArea">
+      <button onclick="goLogin()" class="nav-cta">Login</button>
+    </div>
+  </nav>
+  <!-- ========== END TAMBAHAN ========== -->
 
   <!-- ==========================================
        Mobile Hamburger Button
@@ -686,7 +823,14 @@ https://templatemo.com/tm-613-frost-bakery
     </footer>
 
   </main>
+
   <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
   <script src="templatemo-frost-script.js"></script>
+
+  <!-- ========== TAMBAHAN: Script Login ========== -->
+  <script src="templatemo-naison-doree.js"></script>
+  <script src="login/js/welcome.js"></script>
+  <!-- ========== END TAMBAHAN ========== -->
+
 </body>
 </html>
