@@ -11,29 +11,48 @@
     <link rel="stylesheet" href="templatemo-crypto-login.css">
 
     <style>
-        /* Override: Hilangkan layout kiri-kanan, form jadi tengah */
+        /* === BACKGROUND JPG FULLSCREEN === */
         body.auth-page {
             display: flex !important;
             align-items: center !important;
             justify-content: center !important;
             min-height: 100vh !important;
-            background: #f9f7f4 !important;
             margin: 0 !important;
+            font-family: 'Manrope', sans-serif !important;
+            background: url('bg.jpg') center center no-repeat !important;
+            background-size: cover !important;
+            position: relative !important;
+        }
+
+        /* Overlay gelap biar teks form terbaca jelas di atas foto */
+        body.auth-page::before {
+            content: '' !important;
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            background: rgba(0, 0, 0, 0.4) !important;
+            z-index: 0 !important;
         }
 
         .auth-branding {
             display: none !important;
         }
 
+        /* === FORM GLASSMORPHISM === */
         .auth-form-container {
             width: 100% !important;
-            max-width: 440px !important;
+            max-width: 420px !important;
             padding: 40px 36px !important;
-            background: #fff !important;
-            border-radius: 12px !important;
-            box-shadow: 0 4px 30px rgba(0,0,0,0.08) !important;
-            border: 1px solid rgba(0,0,0,0.06) !important;
-            position: static !important;
+            background: rgba(255, 255, 255, 0.85) !important;
+            backdrop-filter: blur(16px) !important;
+            -webkit-backdrop-filter: blur(16px) !important;
+            border-radius: 16px !important;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2) !important;
+            border: 1px solid rgba(255, 255, 255, 0.4) !important;
+            position: relative !important;
+            z-index: 1 !important;
             height: auto !important;
         }
 
@@ -45,7 +64,7 @@
         }
 
         .form-header p {
-            color: #888 !important;
+            color: #666 !important;
             font-family: 'Manrope', sans-serif !important;
             font-size: 0.88rem !important;
             margin-bottom: 24px !important;
@@ -53,7 +72,7 @@
 
         .form-label {
             font-family: 'Manrope', sans-serif !important;
-            color: #555 !important;
+            color: #444 !important;
             font-size: 0.78rem !important;
             font-weight: 600 !important;
             letter-spacing: 0.04em !important;
@@ -62,20 +81,20 @@
 
         .form-input {
             font-family: 'Manrope', sans-serif !important;
-            border: 1.5px solid #e0e0e0 !important;
-            border-radius: 6px !important;
+            border: 1.5px solid rgba(0,0,0,0.1) !important;
+            border-radius: 8px !important;
             padding: 12px 14px 12px 44px !important;
             font-size: 0.9rem !important;
             color: #1a1a1a !important;
-            background: #fafafa !important;
+            background: rgba(255, 255, 255, 0.6) !important;
             transition: 0.3s ease !important;
         }
 
         .form-input:focus {
-            border-color: #2d6a4f !important;
+            border-color: #333 !important;
             background: #fff !important;
             outline: none !important;
-            box-shadow: 0 0 0 3px rgba(45,106,79,0.1) !important;
+            box-shadow: 0 0 0 3px rgba(0,0,0,0.05) !important;
         }
 
         .form-input-wrapper {
@@ -87,15 +106,16 @@
             left: 14px !important;
             top: 50% !important;
             transform: translateY(-50%) !important;
-            color: #aaa !important;
+            color: #999 !important;
             pointer-events: none !important;
         }
 
+        /* === TABS === */
         .auth-tabs {
             display: flex !important;
             gap: 0 !important;
             margin-bottom: 28px !important;
-            border-bottom: 2px solid #eee !important;
+            border-bottom: 2px solid rgba(0,0,0,0.08) !important;
         }
 
         .auth-tab {
@@ -114,21 +134,22 @@
         }
 
         .auth-tab.active {
-            color: #2d6a4f !important;
-            border-bottom-color: #2d6a4f !important;
+            color: #1a1a1a !important;
+            border-bottom-color: #1a1a1a !important;
         }
 
         .auth-tab:hover {
-            color: #2d6a4f !important;
+            color: #1a1a1a !important;
         }
 
+        /* === TOMBOL (NETRAL GELAP, BISA DIPAKE BUAT BG APApun) === */
         .submit-btn {
             width: 100% !important;
             padding: 13px !important;
-            background: #2d6a4f !important;
+            background: #1a1a1a !important;
             color: #fff !important;
-            border: 2px solid #2d6a4f !important;
-            border-radius: 6px !important;
+            border: 2px solid #1a1a1a !important;
+            border-radius: 8px !important;
             font-family: 'Manrope', sans-serif !important;
             font-size: 0.85rem !important;
             font-weight: 700 !important;
@@ -141,7 +162,7 @@
 
         .submit-btn:hover {
             background: transparent !important;
-            color: #2d6a4f !important;
+            color: #1a1a1a !important;
         }
 
         .form-row {
@@ -154,15 +175,16 @@
         .checkbox-label {
             font-family: 'Manrope', sans-serif !important;
             font-size: 0.82rem !important;
-            color: #777 !important;
+            color: #666 !important;
         }
 
+        /* === LINK (GANTI JADI GELAP) === */
         .forgot-link {
             font-family: 'Manrope', sans-serif !important;
             font-size: 0.82rem !important;
-            color: #2d6a4f !important;
+            color: #1a1a1a !important;
             text-decoration: none !important;
-            font-weight: 500 !important;
+            font-weight: 600 !important;
         }
 
         .forgot-link:hover {
@@ -179,13 +201,13 @@
         .divider-line {
             flex: 1 !important;
             height: 1px !important;
-            background: #eee !important;
+            background: rgba(0,0,0,0.1) !important;
         }
 
         .divider-text {
             font-family: 'Manrope', sans-serif !important;
             font-size: 0.75rem !important;
-            color: #bbb !important;
+            color: #aaa !important;
             text-transform: uppercase !important;
             letter-spacing: 0.06em !important;
         }
@@ -203,20 +225,20 @@
             justify-content: center !important;
             gap: 8px !important;
             padding: 11px !important;
-            border: 1.5px solid #e0e0e0 !important;
-            border-radius: 6px !important;
-            background: #fff !important;
+            border: 1.5px solid rgba(0,0,0,0.1) !important;
+            border-radius: 8px !important;
+            background: rgba(255, 255, 255, 0.5) !important;
             font-family: 'Manrope', sans-serif !important;
             font-size: 0.82rem !important;
             font-weight: 600 !important;
-            color: #555 !important;
+            color: #444 !important;
             cursor: pointer !important;
             transition: 0.3s ease !important;
         }
 
         .social-btn:hover {
+            background: #fff !important;
             border-color: #ccc !important;
-            background: #fafafa !important;
         }
 
         .form-footer {
@@ -226,8 +248,9 @@
             color: #999 !important;
         }
 
+        /* === LINK DI FOOTER === */
         .form-footer a {
-            color: #2d6a4f !important;
+            color: #1a1a1a !important;
             font-weight: 600 !important;
             text-decoration: none !important;
         }
@@ -261,14 +284,14 @@
         .strength-bar {
             flex: 1 !important;
             height: 3px !important;
-            background: #eee !important;
+            background: rgba(0,0,0,0.08) !important;
             border-radius: 2px !important;
         }
 
         .strength-text {
             font-family: 'Manrope', sans-serif !important;
             font-size: 0.72rem !important;
-            color: #bbb !important;
+            color: #aaa !important;
             margin-top: 6px !important;
         }
 
@@ -282,7 +305,7 @@
         .checkbox {
             width: 18px !important;
             height: 18px !important;
-            border: 1.5px solid #ddd !important;
+            border: 1.5px solid rgba(0,0,0,0.15) !important;
             border-radius: 4px !important;
             display: flex !important;
             align-items: center !important;
@@ -291,8 +314,8 @@
         }
 
         .checkbox.checked {
-            background: #2d6a4f !important;
-            border-color: #2d6a4f !important;
+            background: #1a1a1a !important;
+            border-color: #1a1a1a !important;
         }
 
         .checkbox svg {
@@ -304,7 +327,7 @@
         }
 
         .checkbox-label a {
-            color: #2d6a4f !important;
+            color: #1a1a1a !important;
             text-decoration: none !important;
         }
 
@@ -333,7 +356,7 @@
 
         .success-message p {
             font-family: 'Manrope', sans-serif !important;
-            color: #888 !important;
+            color: #666 !important;
             font-size: 0.88rem !important;
             margin-bottom: 24px !important;
         }
@@ -363,7 +386,7 @@
 </head>
 <body class="auth-page">
 
-    <!-- Form Login langsung di tengah -->
+    <!-- Form langsung di tengah di atas bg.jpg -->
     <div class="auth-form-container">
         <div class="auth-form-wrapper">
             <div class="form-header">
@@ -543,7 +566,7 @@
             <!-- Success Message -->
             <div class="success-message" id="successMessage">
                 <div class="success-icon">
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#2d6a4f" stroke-width="2">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2">
                         <polyline points="20 6 9 17 4 12"/>
                     </svg>
                 </div>
