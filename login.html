@@ -14,11 +14,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- CSS: FOLDER css/ SUDAH DIHAPUS KARENA DI GITHUB ROOT -->
-    <link rel="stylesheet" href="templatemo-crypto-style.css">
-    <link rel="stylesheet" href="templatemo-crypto-login.css">
-
+    <link rel="stylesheet" href="css/templatemo-crypto-style.css">
+    <link rel="stylesheet" href="css/templatemo-crypto-login.css">
     <!--
 
 TemplateMo 609 Crypto Vault
@@ -102,6 +99,7 @@ https://templatemo.com/tm-609-crypto-vault
                             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
                             <polyline points="22,6 12,13 2,6"/>
                         </svg>
+                        <!-- TAMBAHAN: id="username" -->
                         <input type="email" class="form-input" id="username" placeholder="Enter your email" required>
                     </div>
                 </div>
@@ -113,7 +111,9 @@ https://templatemo.com/tm-609-crypto-vault
                             <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
                             <path d="M7 11V7a5 5 0 0110 0v4"/>
                         </svg>
+                        <!-- TAMBAHAN: id diganti jadi "password" -->
                         <input type="password" class="form-input" id="password" placeholder="Enter your password" required>
+                        <!-- TAMBAHAN: data-target disesuaikan -->
                         <button type="button" class="password-toggle" data-target="password">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
@@ -274,12 +274,11 @@ https://templatemo.com/tm-609-crypto-vault
         </p>
     </div>
 
-    <!-- AlertBox + Login Script -->
+    <!-- ========== TAMBAHAN: AlertBox + Login Script ========== -->
     <div id="alertBox" class="alert" style="display:none;"></div>
-    
-    <!-- JS: FOLDER js/ SUDAH DIHAPUS KARENA DI GITHUB ROOT -->
-    <script src="login.js"></script>
-    <script src="templatemo-crypto-script.js"></script>
+    <script src="js/login.js"></script>
+    <!-- ========== END TAMBAHAN ========== -->
 
+    <script src="js/templatemo-crypto-script.js"></script>
 </body>
 </html>
